@@ -6,8 +6,14 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      ids: [1, 2, 3, 4]
+      ids: [1, 2, 3, 4],
+      value: ''
     }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
   }
 
   render() {
@@ -16,6 +22,10 @@ class App extends React.Component {
         <header className="App-header">
           My Note Taking app
         </header>
+
+        <form>
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </form>
 
         <div className="NoteContainer">
         {
