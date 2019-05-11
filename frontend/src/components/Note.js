@@ -4,6 +4,7 @@ class Note extends React.Component {
   render() {
     return (
       <div className="Note">
+        <b>ID: { this.props.id } </b>
         <p>
           Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying 
           out print, graphic or web designs. The purpose of 

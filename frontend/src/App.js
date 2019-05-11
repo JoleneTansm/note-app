@@ -5,6 +5,9 @@ import './App.css';
 class App extends React.Component {
   constructor() {
     super();
+    this.state = {
+      ids: [1, 2, 3, 4]
+    }
   }
 
   render() {
@@ -15,7 +18,11 @@ class App extends React.Component {
         </header>
 
         <div className="NoteContainer">
-          <Note />
+        {
+          this.state.ids.map((id) =>  {
+            return <Note key={id} id={id}/>
+          })
+        }
         </div>
 
       </div>
