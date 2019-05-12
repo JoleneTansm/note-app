@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class Note extends React.Component {
   constructor() {
@@ -6,6 +7,13 @@ class Note extends React.Component {
     this.state = {
       text: ''
     }
+  }
+
+  componentDidMount() {
+    axios.get(`http://localhost:3001/note/${ this.props.id }`)
+      .then((res) => {
+        this.setState({text: res.data})
+      })
   }
 
   render() {

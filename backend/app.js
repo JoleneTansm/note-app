@@ -17,17 +17,13 @@ const app = express(); // instantiating an express server
 app.use(cors()); // to handle requests coming from other origins, e.g. react dev server
 app.use(bodyparser()); // to make available POST request body in req.body
 
-const notes = {
-  1: "Hello",
-  2: "world"
-}
 
 // Add routes for / here
 app.get('/all', (req, res) => {
-  res.send(Object.keys(notes));
+  res.send([1, 2]);
 })
 
-
+app.use('/note', note);
 
 app.listen(PORT, () => {
   console.log(`\n > App is listening at http://localhost:${PORT} ! \n`)

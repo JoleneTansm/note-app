@@ -1,6 +1,6 @@
 const express = require('express');
-const router = express.Router();
 const sqlite3 = require('sqlite3').verbose();
+const router = express.Router(); // mini-express app, use this
 
 const DB_PATH = './notes.db' // sqlite3 file
 let db = new sqlite3.Database(DB_PATH, (err) => {
@@ -11,5 +11,8 @@ let db = new sqlite3.Database(DB_PATH, (err) => {
 })
 
 // Add routes for /note here
+router.get('/:id', (req, res) => {
+  res.send('Hello world from note router');
+});
 
 module.exports = router
