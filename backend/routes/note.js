@@ -18,7 +18,17 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  res.send('Hello world from note router');
+  db.all('SELECT text FROM notes WHERE id=?', [req.params.id], (err, rows) => {
+    if (rows.length === 0) {
+      res.sendStatus(404);
+      return;
+    }
+    let text = rows[0].text;
+    if (text === null) {
+      text = '';
+    }
+    res.send(text);
+  })
 });
 
 module.exports = router
