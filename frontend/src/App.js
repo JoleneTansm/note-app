@@ -26,6 +26,11 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
+    axios.post('http://localhost:3001/note', { 'text': this.state.value })
+      .then((res) => {
+        let newid = parseInt(res.data);
+        this.setState({ids: this.state.ids.concat(newid)});
+      })
     event.preventDefault();
   }
 

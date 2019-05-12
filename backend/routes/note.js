@@ -11,6 +11,10 @@ let db = new sqlite3.Database(DB_PATH, (err) => {
 })
 
 // Add routes for /note here
+router.post('/', (req, res) => {
+  res.send("10"); // return placeholder id for now
+})
+
 router.get('/:id', (req, res) => {
   res.send('Hello world from note router');
 });
