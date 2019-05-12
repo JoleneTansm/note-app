@@ -3,8 +3,8 @@ import Note from './components/Note.js';
 import './App.css';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
 
   render() {
