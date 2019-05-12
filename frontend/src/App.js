@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Note from './components/Note.js';
 import './App.css';
 
@@ -10,10 +11,15 @@ class App extends React.Component {
       value: ''
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
   }
 
   render() {
@@ -23,8 +29,9 @@ class App extends React.Component {
           My Note Taking app
         </header>
 
-        <form>
+        <form onSubmit={this.handleSubmit} >
           <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="submit" value="Save" />
         </form>
 
         <div className="NoteContainer">
