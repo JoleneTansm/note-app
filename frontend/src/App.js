@@ -14,6 +14,13 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    axios.get('http://localhost:3001/all')
+      .then((res) => {
+        this.setState({ids: res.data});
+      });
+  }
+
   handleChange(event) {
     this.setState({ value: event.target.value });
   }

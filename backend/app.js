@@ -17,11 +17,14 @@ const app = express(); // instantiating an express server
 app.use(cors()); // to handle requests coming from other origins, e.g. react dev server
 app.use(bodyparser()); // to make available POST request body in req.body
 
-
+const notes = {
+  1: "Hello",
+  2: "world"
+}
 
 // Add routes for / here
 app.get('/all', (req, res) => {
-  res.send('App says hello from /all!');
+  res.send(Object.keys(notes));
 })
 
 
