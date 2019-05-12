@@ -20,7 +20,10 @@ app.use(bodyparser()); // to make available POST request body in req.body
 
 // Add routes for / here
 app.get('/all', (req, res) => {
-  res.send([1, 2]);
+  db.all('SELECT id FROM notes', (err, rows) => {
+    const ids = rows.map((row) => row.id); // [{id: 1}, {id: 2}] => [1, 2]
+    res.send(ids);
+  })
 })
 
 app.use('/note', note);

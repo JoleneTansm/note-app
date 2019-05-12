@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      ids: [1, 2, 3, 4],
+      ids: [],
       value: ''
     }
     this.handleChange = this.handleChange.bind(this);
